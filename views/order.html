@@ -1,0 +1,495 @@
+<script id="template-order-info" type="text/x-handlebars-template">
+<div class="order_div order-container-div small-text">
+
+    <div class="order_header ">
+
+            <div class="padding-left-5 padding-right-5 row">
+
+
+                <div class="col-xm-4 col-sm-6 padding-top-15 padding-right-25">
+                    <form class="padding-left-5 padding-right-5 searchbox" >
+                        <div class="rectangular-input right-inner-addon">
+                            <a href="javascript:void(0)"><i class="fa fa-search text-color-9da3b3" aria-hidden="true"></i></a><input type="text" class="form-control searchInput" placeholder="Search" id="search_here_order">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-xm-6 col-sm-5 padding-top-15 padding-bottom-15 orderButtonsContainer" role="group" aria-label="...">
+                    <a href="#order"  class="btn btn-questtag-tab  min-width-140 small-text-special border-radius-1" data-toggle="load" data-arg="order" id="activeOrder">
+                        Current  Orders
+                    </a>
+
+                    <a href="#orderScheduled" class="btn btn-questtag-tab min-width-140 small-text-special border-radius-1" data-toggle="load" data-arg="orderScheduled" id="scheduledOrder">
+                        Future Orders
+                    </a>
+                    <a href="#orderPast" class="btn btn-questtag-tab min-width-145 small-text-special border-radius-1" data-toggle="load" data-arg="orderPast" id="pastOrder">
+                        Past Orders
+                    </a>
+                </div>
+
+
+
+
+                <div class=" col-xm-2 col-sm-1 padding-top-15 ">
+
+                        <a role="button" data-toggle="modal" data-target="#myModal_new_order" class="btn btn-questtag border-radius-0 pull-xs-right cursor-pointer min-width-140 small-text3">
+                            <i class="fa fa-plus pull-left padding-top-4"></i>New Order
+                        </a>
+                </div>
+            </div>
+    </div>
+
+    <div class="body_order">
+        <div class="table-wrapper">
+            <div class="incomplete-order-wrapper has-order-table">
+                <table width="100%" id="table-scheduled-order" class="table  cell-border border-bottom-dddddd-imp order-table-selector-claas" cellspacing="0">
+                    <thead class="back-color-444b5d">
+                    <tr>
+                        <td class="text-nowrap">Order Number</td>
+                        <td>Customer Name</td>
+                        <td>Pick-up From</td>
+                        <td>Order Amount</td>
+                        <td>Deliver Distance</td>
+                        <td>Placement Time</td>
+                        <td>Est. Delivery Time</td>
+                        <td>Elapsed Time
+                        </td>
+                        <td>Driver</td>
+                        <td>Status</td>
+                        <td>Order Details
+                        </td>
+                    </tr>
+                    </thead >
+                    <tbody>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="active-order-wrapper has-order-table">
+                <table width="100%" id="table-active-order" class="table" cellspacing="0">
+                    <thead class="back-color-444b5d">
+                    <tr>
+
+                        <td class="text-nowrap">Order Number</td>
+                        <td>Customer Name</td>
+                        <td>Pick-up From</td>
+                        <td>Order Amount</td>
+                        <td>Deliver Distance</td>
+                        <td>Placement Time</td>
+                        <td>Est. Delivery Time</td>
+                        <td>Elapsed Time
+                        </td>
+                        <td>Driver</td>
+                        <td>Status</td>
+                        <td>Order Details
+                        </td>
+                    </tr>
+                    </thead >
+                    <tbody>
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+            <div class="completed-order-wrapper has-order-table">
+                <table width="100%" id="table-past-order" class="table " cellspacing="0">
+
+                    <thead class="back-color-444b5d">
+                    <tr>
+                        <td class="text-nowrap">Delivery Date</td>
+                        <td >Order Number</td>
+                        <td>Customer Name</td>
+                        <td>Pick-up From</td>
+                        <td>Order Amount</td>
+                        <td>Deliver Distance</td>
+                        <td>Placement Time</td>
+                        <td>Est. Delivery Time</td>
+                        <td>Elapsed Time
+                        </td>
+                        <td>Driver</td>
+                        <td>Status</td>
+                        <td>Order Details
+                        </td>
+                    </tr>
+                    </thead >
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div> <!--order body-->
+
+</div>
+<div class="modal fade" id="orderDetailsView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"  >
+        <div class="modal-content">
+            <div class="modal-header back-color-444b5d">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="text-color-steel-grey">&times;</span> <span class="sr-only">
+                            Close</span></button>
+                <div class="modal-title">
+                    Order Details</div>
+            </div>
+
+            <div class="modal-body">
+                <div class="show-before-loading padding-top-20 padding-bottom-20 text-color-grey padding-left-10">
+                    <i class="fa fa-spin fa-spinner"></i> loading...
+                </div>
+
+                <div class="show-after-loading main-content">
+
+                </div>
+
+
+
+
+
+
+                </div>
+                <div style="display: none" class="alert force-complete-failed alert-danger alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Sorry! </strong>the order has not started yet.
+                </div>
+                <div style="display: none;" class="alert force-complete alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Success! </strong>the order has been completed.
+                </div>
+            <div class="modal-footer  bottom-radius-6">
+
+                <button type="button" class="pull-left btn btn-questtag min-width-145 background-color-ADB9C2-heather no-border text-bold text-color-steel-grey backgorund-color-conifer-99C73B-hover" data-toggle="download" data-select="orderDetailPdf">
+                    <i class="fa fa-download"></i> PDF
+                </button>
+                <button type="button" class="btn btn-questtag min-width-145 no-border forceOrderComplete" data-toggle='orderComplete'>
+                    Complete Order</button>
+
+                <button type="button" class="btn btn-danger min-width-145 no-border deleteButton" data-toggle='orderDelete'>
+                    Delete</button>
+                <button type="button" class="btn btn-questtag min-width-145 background-color-ADB9C2-heather no-border text-bold text-color-steel-grey backgorund-color-conifer-99C73B-hover" data-dismiss="modal">
+                    OK</button>
+            </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--modal new_order-->
+    <div class="modal fade" id="myModal_new_order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+
+            <form  action="/dummyPOST" id="newOrderForm">
+
+                <div class="modal-content" style="">
+                    <div class="modal-header back-color-444b5d">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="text-color-steel-grey">&times;</span> <span class="sr-only">
+                            Close</span></button>
+                        <div class="modal-title">
+                            New Order</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal margin-left-30 margin-right-60">
+
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right  star-after">
+                                    Order Number:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name='test' class="form-control" id="orderNumber" placeholder="" required>
+                                </div>
+                            </div>
+
+
+                            <div class="height-14"></div>
+                            <hr>
+
+                            <div class="form-group row ">
+                                <div style="" class="col-sm-3 col-form-label">Deliver to:</div>
+                                <label  class="col-sm-3 col-form-label text-xs-right   ">
+                                    Name:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="customerName" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Phone No:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="customerPhone" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Email:</label>
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control" name="customerEmail" id="customerEmail" placeholder="">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group  margin-bottom-7 ">
+                                <label  class="col-sm-6 col-form-label text-xs-right    star-after">
+                                    Address:</label>
+                                <div class="col-sm-6">
+                                    <textarea type="text" rows="2" class="form-control" id="customerAddress" required data-toggle="address-autocomplete"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group m-t-1">
+                                <div  class="col-sm-6 col-form-label"></div>
+
+                                <div class="col-sm-6 col-form-label">
+                                    <input type="radio" class="radio-questtag" name="orderType" value="DEILIVER_NOW"> Deliver Now
+                                    <input type="radio" class="radio-questtag" name="orderType" value="SCHEDULED"> Scheduled For Later
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row schedule-only">
+                                <label  class="col-sm-6 col-form-label text-xs-right    star-after">
+                                    Delivery Time:</label>
+
+                                <div class="col-sm-3 p-r-0 bootstrap-timepicker">
+                                    <div class="input-group">
+
+                                    <input type="text" class="form-control" id="expectedDeliveryDate" placeholder="" data-toggle="pick-date" data-value="today" required>
+                                        <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 p-r-0 bootstrap-timepicker">
+                                    <div class="input-group">
+                                    <input type="text" class="form-control" id="expectedDeliveryTime" placeholder="" data-toggle="pick-time" data-offsetValue="60" required>
+                                    <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                        </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="height-14 pickup-only"></div>
+
+                            <hr>
+
+                            <div class="form-group row pickup-only">
+                                <div style="" class="col-sm-3 col-form-label pickup-only" >Pick up from:</div>
+                                <label  class="col-sm-3 col-form-label text-xs-right   ">
+                                    Name:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="restaurantName" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row pickup-only">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Phone No:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="restaurantPhone" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row margin-bottom-7 pickup-only">
+                                <label  class="col-sm-6 col-form-label text-xs-right    star-after">
+                                    Address:</label>
+                                <div class="col-sm-6">
+                                    <textarea rows="2" class="form-control" id="restaurantAddress" data-toggle="address-autocomplete" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row pickup-only">
+                                <label  class="col-sm-6 col-form-label text-xs-right    star-after">
+                                    Pickup Time:</label>
+                                <div class="col-sm-6 bootstrap-timepicker">
+                                    <input type="text" class="form-control" id="expectedPickUpTime" placeholder="" data-toggle="pick-time" data-offsetValue="30" required>
+                                </div>
+                            </div>
+
+                            <div class="height-14"></div>
+                            <hr>
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right    star-after">
+                                    Items:</label>
+                                <div class="col-sm-6" id="new-order-items">
+                                    <div class="row padding-bottom-3 has-hover-item m-y-1" data-order-item="{{number}}" style="position: relative">
+                                        <div class="col-sm-4 padding-right-5">
+                                            <input name="item[][name]" class="form-control" placeholder="name" type="text">
+                                        </div>
+                                        <div class="col-sm-4 padding-left-0 padding-right-5">
+                                            <input name="item[][unit-price]" class="form-control" placeholder="price" type="number" step="0.01">
+                                        </div>
+                                        <div class="col-sm-4 padding-left-0">
+                                            <input name="item[][quantity]" class="form-control" placeholder="qty" type="number">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="height-14"></div>
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Total Cost (<span class="currency_symbol_show"></span>):</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="total-cost" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row pickup-only">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Discount (<span class="currency_symbol_show"></span>):</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="discount" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Delivery fees (<span class="currency_symbol_show"></span>):</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="delivery-fees" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Delivery tips (<span class="currency_symbol_show"></span>):</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="delivery-tips" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row pickup-only">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Tax (<span class="currency_symbol_show"></span>):</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="tax" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row   margin-bottom-7">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Delivery Instruction:</label>
+                                <div class="col-sm-6">
+                                    <textarea rows="2" class="form-control" id="deliveryInstruction" ></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-sm-6 col-form-label text-xs-right   ">
+                                    Payment Method:</label>
+                                <div class="col-sm-6">
+                                    <select name="paymentMethod" class="form-control" id="paymentMethod">
+                                        <option value=""></option>
+                                        <option value="cash">Cash</option>
+                                        <option value="credit_card">Credit Card</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row" data-for="only-for-credit-card">
+                                <label  class="col-sm-6 col-form-label text-xs-right  star-after">
+                                    Credit card type:</label>
+                                <div class="col-sm-6">
+                                    <select name="creditCardType" class="form-control" id="creditCardType" required>
+                                        <option value=""></option>
+                                        <option value="visa">Visa</option>
+                                        <option value="master_card">Master Card</option>
+                                        <option value="amex">AMEX</option>
+                                        <option value="other">other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row" data-for="only-for-credit-card">
+                                <label  class="col-sm-6 col-form-label text-xs-right    star-after" >
+                                    Last four digit:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="creditCardId" placeholder="" required>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer bottom-radius-6">
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-questtag btn-lg btn-block border-radius-2" data-dismiss="modal">
+                                    Cancel
+                                </button>
+
+                            </div>
+
+                            <div class="col-sm-3">
+                                <button type="submit" class="btn btn-questtag btn-lg btn-block border-radius-2">
+                                    Save
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!--modal new_order end-->
+
+    <div class="modal  fade"  id="assign_order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header back-color-444b5d">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="text-color-steel-grey">&times;</span> <span class="sr-only">Close</span></button>
+                    <div class="modal-title text-bold text-size-20" id="myModalLabel3">Assign Order</div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="show-before-loading padding-top-20 padding-bottom-20 text-color-grey padding-left-10">
+                        <i class="fa fa-spin fa-spinner"></i> loading...
+                    </div>
+
+                    <div class="show-after-loading">
+                        <form action="/dummyPOST" id="assignForm" method="post">
+                            <input type="hidden" name="ref" value="" id="sendRef">
+                            <input type="hidden" name="test" value="">
+                            <input type="hidden" name="driverRef" value="" id="sendDriverRef">
+                            <table width="100%" id="table_assigment" class="table table-bordered" >
+                                <thead class="">
+                                <tr>
+                                    <td>Drivers</td>
+                                    <td ># of Assigned Orders</td>
+                                    <td>Assign</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer  bottom-radius-6">
+                    <div class="row">
+                        <div class="col-sm-9"></div>
+
+                        <div class="col-sm-3 show-after-loading">
+                            <button type="button" class="btn btn-questtag btn-block btn-lg border-radius-2" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</script>

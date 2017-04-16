@@ -1,0 +1,76 @@
+<script id="template-avatar" type="text/x-handlebars-template">
+    <div class="asana-avatar opaque-when-selected" style="opacity:{{opacity}};" data-marker-type="{{info.type}}" data-id="{{info.id}}"
+         {{#if info.toolTip}}
+         {{#if info.name}}
+         data-toggle="tooltip" data-placement="top" title="<span class='text-nowrap'>{{info.name}}</span>"
+         {{/if}}
+    {{/if}}
+    >
+    <div style="{{#if bgColor}}
+                        background-color: {{bgColor}};
+                    {{/if}}
+                    {{#if info.size}}
+                        width: {{info.size}}px;
+                        height: {{info.size}}px;
+                    {{/if}}
+
+        "
+         class="
+            {{#if css}}
+                {{css}}
+            {{/if}}
+        "
+    >
+        <abbr class="abbr-inside">{{{name}}}</abbr>
+    </div>
+    </div>
+</script>
+
+<script id="template-avatar-lg" type="text/x-handlebars-template">
+    <div class="asana-avatar  lg opaque-when-selected" style="opacity:{{opacity}}" data-marker-type="{{info.type}}" data-id="{{info.id}}">
+        <div>
+            <abbr class="abbr-inside">{{{name}}}</abbr>
+        </div>
+    </div>
+</script>
+
+<script id="template-avatar-lg-custom" type="text/x-handlebars-template">
+    <div class="asana-avatar lg opaque-when-selected" style="{{#if opacity}}opacity:{{opacity}};{{/if}}" data-marker-type="{{info.type}}" data-id="{{info.id}}">
+        <div style="{{#if bg_color}}background-color:{{bg_color}};{{/if}}">
+            <abbr class="abbr-inside">{{{name}}}</abbr>
+        </div>
+    </div>
+</script>
+
+
+
+
+
+<script id="image-avatar" type="text/x-handlebars-template">
+
+    <div class="opaque-when-selected avatar-image-responsive circle-image-div cursor-pointer {{#if blackAndWhite}}grayscale{{/if}}"
+
+         style="
+        position: relative;
+    {{#if large}}
+        width:40px;
+        height: 40px;
+    {{else}}
+        width:30px;
+        height: 30px;
+    {{/if}}
+        background-image: url('{{image}}');
+    {{#if opacity}}
+        opacity:{{opacity}};
+    {{/if}}
+    ">
+        {{#if cornerCircle}}
+        <div class="corner-circle">
+            <span style="vertical-align: middle;">
+            {{cornerCircle}}
+            </span>
+        </div>
+        {{/if}}
+    </div>
+
+</script>

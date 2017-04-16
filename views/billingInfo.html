@@ -1,0 +1,59 @@
+<script id="template-billing-and-payment" type="text/x-handlebars-template">
+    <div class="row dispatcher-menu-div ">
+        <div class="col-xs-2 ">
+        </div>
+        <div id="menuDivDropdown2" class=" col-xs-8 background-white padding-top-40 p-l-3 p-r-3">
+    <h4 class="text-clor-green-87ec00 m-b-2">BILLING</h4>
+            <hr>
+    <table id="billingTable" class="table small-text" cellspacing="0" width="100%">
+        <thead class="">
+        <tr>
+            <th>Date</th>
+            <th>Service Period</th>
+            <th># of Orders</th>
+            <th>Fees</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each billingInfos}}
+        <tr>
+            <td>
+
+                {{shortDateformat startDate}}
+
+            </td>
+            <td>
+                {{#if endDate}}
+                {{shortDateformat startDate}} - {{shortDateformat endDate}}
+                {{else}} Current
+                {{/if}}
+            </td>
+            <td>
+                {{numberOfOrders}}
+            </td>
+            <td>
+                {{{money totalAmount}}}
+            </td>
+            <td>
+                {{#if paid}} <p>Paid</p>
+                {{else}}
+                {{#equal totalAmount 0}}Paid{{else}}Due{{/equal}}
+                {{/if}}
+
+
+            </td>
+
+
+        </tr>
+
+
+
+        {{/each}}
+
+        </tbody>
+    </table>
+            </div>
+        <div class="col-xs-2 "></div>
+        </div>
+</script>

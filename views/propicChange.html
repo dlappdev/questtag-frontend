@@ -1,0 +1,34 @@
+<script id="template-propic-change" type="text/x-handlebars-template">
+    <h3 class="text-clor-green-9AC93B">UPDATE LOGO</h3>
+    <hr>
+    <form class="form-horizontal margin-left-30 margin-right-60 " enctype="multipart/form-data" action="" role="form" id="propicChangeForm">
+        <div  style="margin-left: 42.3%;margin-bottom: 10px;">
+            <input id="profile_image" style="display:none" value="" type="file">
+            <input id="setPicture" type="image" value=""  src="@routes.Assets.at("images/dispatcher_images/ic_info.png")" width="135" height="120" />
+            <input id="setPicture2" style="display: none" type="file" value=""  src="@routes.Assets.at("images/dispatcher_images/moin.jpg")" width="120" height="120" alt=""/>
+            <input type="hidden" name="type" value="DISPATCHER_PROFILE_IMAGE">
+        </div>
+        <div class="btn btn-questtag" style="margin-left:43%;" id="uploadPicture"><span>Upload Logo</span></div>
+
+        <div class="form-group">
+        </div>
+
+        <div class="form-group" style="margin-top:50px">
+            <label class="col-sm-4 control-label text-color-898A8D-grey"></label>
+            <div class="col-sm-2">
+                <button type="button" data-task="profile" data-url="" class="btn btn-questtag btn-block" >Cancel</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit"    class="btn btn-questtag btn-block" >Save</button>
+            </div>
+        </div>
+
+    </form>
+    <div style="display: none"  class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success!</strong> Profile picture is saved.
+    </div>
+
+</script>

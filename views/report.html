@@ -1,0 +1,121 @@
+<script id="template-report" type="text/x-handlebars-template">
+<div class="">
+    <div class="padding-40">
+        <div class="row">
+            <div class="col-sm-4 col-xm-3 m-b-2 m-b-1 p-b-1">
+                <div class="  pull-left small-text3">
+                    <select name="report-type" data-render="select2" data-placeholder="Report Type" class="report-select">
+                        <option  value="driver-payment">Driver Payment</option>
+                        <option value="sales-report">Sales Report</option>
+                        <option value="customer-service">Customer Service</option>
+                        <option value="deliveries">Driver Performance</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" col-sm-8 col-xm-9 small-text3">
+                <div class=" pull-md-right" data-toggle="buttons">
+
+                    <label class="btn btn-questtag-tab
+                           backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                           text-color-bbb-not-active
+                           border-radius-1 small-text-special
+                           ">
+                        <input class="btn btn-questtag-tab " type="radio" name="date-range" option='1' autocomplete="off" value="today"> Today
+                    </label>
+                    <label class="btn btn-questtag-tab
+                           backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                           text-color-bbb-not-active
+                           border-radius-1 small-text-special
+                           ">
+                        <input class="btn btn-questtag-tab "  type="radio" name="date-range" option='2' autocomplete="off" value="yesterday"> Yesterday
+                    </label>
+                    <label class="btn btn-questtag-tab
+                           backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                           text-color-bbb-not-active small-text-special border-radius-1">
+                        <input class="btn btn-questtag-tab " type="radio" name="date-range" option='3' autocomplete="off" value="this-week"> This Week
+                    </label>
+                    <label class="btn btn-questtag-tab
+                           backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                           text-color-bbb-not-active
+                           border-radius-1 small-text-special
+                           ">
+                        <input class="btn btn-questtag-tab " type="radio" name="date-range" option='4' autocomplete="off" value="this-month"> This Month
+                    </label>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="pull-right" style="display: none;">
+            <select name="export-type" data-render="select2" data-placeholder="Export" style="min-width: 100px">
+                <option value=""></option>
+                <option value="csv">CSV</option>
+            </select>
+        </div>
+
+        <div class="col-sm-12 col-xm-12 height-100">            &nbsp;
+        </div>
+
+        <div class="col-sm-8 col-xm-8">
+            <span id="text-report-type" class="text-bold text-color-58585A-black text-size-18"></span>
+            &nbsp;&nbsp;
+            <span class="text-color-7C7C83-grey text-size-13" id="text-date-range"></span>
+        </div>
+        <div class="row">
+
+
+            <div class="col-sm-12 col-xm-12">
+                <div style="background-color: #f2f1f1; height: 800px;display:none;"  class="google-graph" id="graph-report">
+
+                </div>
+            </div>
+            <div class="col-sm-12 col-xm-12">
+                <div style="background-color: #f2f1f1; height: 400px" class="google-graph" id="graph-report2">
+
+                </div>
+            </div>
+        </div>
+        <div class="row m-t-1">
+            <div class="col-sm-7 col-xm-5">
+                </div>
+            <div class="col-sm-2 col-xm-4  height-100">
+                <form class="padding-left-5 padding-right-5 report-search-width" >
+                    <div class="rectangular-input right-inner-addon">
+                        <a href="javascript:void(0)"><i class="fa fa-search text-color-9da3b3" aria-hidden="true"></i></a><input type="text" class="form-control searchInput" placeholder="Search" id="search_on_report">
+                    </div>
+                </form>
+                &nbsp;
+            </div>
+            <div class="col-sm-1 col-xm-1">
+                </div>
+
+
+            <div class="col-sm-2 col-xm-2">
+                <button class="btn btn-questtag small-text-special d-block m-x-auto radius-0" style="" data-toggle="download-report">
+                Download Excel File
+            </button>
+            </div>
+
+
+
+        </div>
+
+        <table width="100%" id="table-report" class="table small-text-special">
+            <thead class="">
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>On Time Delivery</th>
+                <th>Late Delivery</th>
+                <th>Total Delivery</th>
+                <th>Customer Feedback</th>
+                <th>Average Time</th>
+            </tr>
+            </thead >
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </script>

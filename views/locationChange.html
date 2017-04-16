@@ -1,0 +1,39 @@
+<script id="template-location-change" type="text/x-handlebars-template">
+    <h4 class="text-clor-green-87ec00">CHANGE LOCATION</h4>
+    <hr>
+
+    <form class="form-horizontal margin-left-30 margin-right-60 " action="" role="form" id="LocationChangeForm">
+        <div class="form-group row">
+
+            <label class="col-sm-4 text-sm-right text-color-898A8D-grey">Current City</label>
+            <div  class="col-sm-5 ">
+
+                <span id="cityNameToBeChanged" class="float-left" >Fremont, CA, United States</span>
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 text-sm-right text-color-898A8D-grey">New City</label>
+            <div class="col-sm-5" >
+
+                <input id="companyAddress" onclick="initGoogleAutoCompleteCity()" class="form-control radius-0" placeholder="" type="text" required>
+            </div>
+        </div>
+
+        <div class="form-group row" style="margin-top:50px">
+            <label class="col-sm-4  text-color-898A8D-grey"></label>
+            <div class="col-sm-2">
+                <button type="button" data-task="profile" class="btn btn-questtag btn-block" >Cancel</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit"  id="saveLocation" class="btn btn-questtag btn-block" >Save</button>
+            </div>
+        </div>
+    </form>
+    <div style="display: none" class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success!</strong>New  location is saved.
+    </div>
+</script>

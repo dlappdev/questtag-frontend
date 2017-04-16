@@ -1,0 +1,154 @@
+<script id="template-dashboard-orders" type="text/x-handlebars-template">
+
+    {{#each this}}
+    <div class="each-row p-x-1" data-driverid="{{#if accepted}}{{driverId}}{{/if}}" style="{ { #if accepted } } display : none { { / if } }">
+        <div class="row margin-left-right-0 text-color-steel-grey">
+            <div class="row-header col-xs-12 padding-bottom-7 also-alert
+             {{#if alert}}
+                {{#equal alert 'PICKUP_ALERT'}}
+                    text-color-orange
+                {{else}}
+                    text-color-brick-red
+                {{/equal}}
+             {{/if}}
+             ">
+                <div class="row small-text3">
+                    <div class="col-xs-6 padding-bottom-5 padding-top-5">
+                        <span class="text-color-5a5a5a">
+                            <span>
+                                {{#gt parentId 0}}
+                                    <img width="14" height="14" alt="" src="/imgs/redrop.png">
+                                    {{else}}
+
+                                    {{#if scheduled}}
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+
+                                    {{/if}}
+                                {{/gt}}
+
+                            </span>Order <span class="orderNumber"><a href='javascript:void(0)' data-task="viewOrder" data-orderId="{{orderId}}">#{{orderNumber}}</a></span>
+                                &nbsp;&nbsp;
+                            <span class="text-italic timeField">{{{formatedTime}}}</span>
+
+                        </span>
+                    </div>
+
+                    <div class="col-xs-4  padding-left-5 padding-top-5 padding-right-0 text-color-5a5a5a">
+                        Amount: &nbsp;<span class="total_cost">{{money totalCost}}</span><span style="color: Gray;"> ( {{money totalTip}} )</span>
+                    </div>
+
+                    {{#if driverName}}
+
+                    <div class="col-xs-2 waiting_driver_container padding-right-5" style="">
+                        <a href="javascript:void(0)" class="btn btn-sm btn-questtag small-text3" data-task="unassign-order-not-accepted" data-refid="{{orderId}}">
+                            Unassign
+                        </a>
+                    </div>
+                    {{else}}
+                    <!--Reassign button will be shown until the order is picked up -->
+                    {{#unless  afterPickedUp}}
+                    <div class=" col-xs-2 text-center padding-top-5" >
+
+                        <a href="javascript:void(0)" class="btn btn-sm btn-questtag small-text3" data-task="assignment" data-refid="{{orderId}}" data-assigned="{{#if accepted}}true{{else}}false{{/if}}">
+                            {{#if accepted}}
+                            Reassign
+
+                            {{else}}
+                            Assign
+                            {{/if}}
+                        </a>
+                    </div>
+                    {{/unless}}
+                    <br>
+
+
+                    {{/if}}
+
+                </div>
+            </div>
+
+
+            <div class=" col-xs-6 padding-left-6 ">
+                <div class="padding-bottom-3 fromName text-color-2C353A small-text">{{fromName}}</div>
+                <div class="line-height-1-1em fromAddress text-color-5a5a5a small-text3">{{fromAddress}}</div>
+
+            </div>
+
+            <div class="col-xs-6 padding-left-5 ">
+                <div class="padding-bottom-3 toName text-color-2C353A small-text">
+                    {{toName}}
+                </div>
+                <div class="line-height-1-1em toAddress text-color-5a5a5a small-text3">{{toAddress}}</div>
+
+            </div>
+
+
+            <div>
+
+
+
+                <div class="col-xs-6 padding-top-5" style="">
+                    {{#if rejectedCarriers}}
+                    <div class="">
+                        Rejected by:
+                        <span class="drivers-name">
+                            {{#each rejectedCarriers}}
+
+                            {{/each}}
+                        </span>
+                    </div>
+                    {{/if}}
+
+                    {{#if noResponseCarriers}}
+                    <div class="">
+                        No response:
+                        <span class="drivers-name">
+                            {{#each noResponseCarriers}}
+
+                            {{/each}}
+                        </span>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="col-xs-4 padding-top-5" style="">
+                    {{#if driverName}}
+                    <div class="waiting_driver_container" style="margin-left: -9px;">
+                        Waiting for:
+                        <span class="waiting_driver">
+                            {{driverName}}
+                        </span>
+                    </div>
+
+                    {{else}}
+                    <!--Reassign button will be shown until the order is picked up -->
+                    {{#unless  afterPickedUp}}
+                    <div class=" text-center" >
+                        {{#equal autoAssignmentStatus "NO_VALID_CARRIER"}}
+                        {{#unless accepted}}<span class="text-color-brick-red">No valid carrier</span><br>{{/unless}}
+                        {{/equal}}
+
+                    </div>
+                    {{/unless}}
+                    <br>
+
+
+                    {{/if}}
+
+                </div>
+
+                <div class="col-xs-2 text-color-light-gray small-text-special">
+                    {{#gt (func 'getStatusStage' status) 1}}
+                    {{prettyStatus}}
+                    {{/gt}}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <hr class="back-color-354051 height-1 straight-line">
+    {{/each}}
+
+
+</script>

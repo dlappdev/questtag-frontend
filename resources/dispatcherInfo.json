@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "name": "Dispatcher",
+  "admin_id": 9,
+  "company_id": 4,
+  "company_settings": {
+    "companyId": 4,
+    "areaId": 6,
+    "allActiveSettings": [{
+      "setting": {
+        "setting_id": 1,
+        "name": "will_send_email"
+      },
+      "status": true
+    }, {
+      "setting": {
+        "setting_id": 2,
+        "name": "will_send_sms"
+      },
+      "status": true
+    }, {
+      "setting": {
+        "setting_id": 3,
+        "name": "delivery_only"
+      },
+      "status": false
+    }, {
+      "setting": {
+        "setting_id": 4,
+        "name": "scheduled_delivery"
+      },
+      "status": false
+    }, {
+      "setting": {
+        "setting_id": 5,
+        "name": "will_auto_assign"
+      },
+      "status": false
+    }, {
+      "setting": {
+        "setting_id": 6,
+        "name": "check_geofence"
+      },
+      "status": false
+    }],
+    "allInactiveSettings": [],
+    "fixedPickUpAdress": null,
+    "deliveryOnlyMaxtimeInSeconds": 5400,
+    "scheduleOrderLeadTimeInSeconds": 10800,
+    "orderAcceptanceTimeOutInSeconds": 300,
+    "geofenceRadiusInMeter": 1609,
+    "fixedDriverFeePerDelivery": 3,
+    "timeZoneOffsetInMinutes": -480,
+    "timeLimitForOrderToBeActivatedInMinutes": 0,
+    "mapSettings": {
+      "latitude": 23.680504913254037,
+      "longitude": 90.03425164570308,
+      "zoomLevel": 11
+    },
+    "sheduledDeliveryOn": false,
+    "onlyDeliveryTypeOn": false,
+    "geofenceCheckOn": false,
+    "emailNotificationOn": true,
+    "smsNotificationOn": true,
+    "autoAssignmentOn": false
+  },
+  "will_auto_assign": 0,
+  "assignment_algorithm": 1,
+  "thumbnail_pic": "public/images/dispatcher_images/",
+  "operational_areas": [{
+    "area_id": 6,
+    "area_name": "Narayanganj, Dhaka Division, Bangladesh",
+    "company_id": 4,
+    "latitude": 23.680504913254037,
+    "longitude": 90.03425164570308,
+    "zoom_level": 11,
+    "timezone_offset_in_minutes": -480,
+    "timezone_offset_id": "America/Los_Angeles"
+  }],
+  "currency_code": "UZS",
+  "currency_symbol": "UZS"
+}

@@ -1,0 +1,222 @@
+
+<script id="template-order-detail" type="text/x-handlebars-template">
+
+        <p class="text-bold">Order No. {{order_number}}</p>
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">
+                <P class="text-bold">Deliver to:</P>
+                <table style="width: 100%">
+                    <tr>
+                        <td class="nowrap" style="vertical-align: top ;">Name: </td>
+                        <td class="padding-left-5">{{customer_name}}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="nowrap" style="vertical-align: top">Address: </td>
+                        <td class="padding-left-5">{{customer_address}}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="nowrap" style="vertical-align: top">Phone: </td>
+                        <td class="padding-left-5">{{customer_phone}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-6">
+                <P class="text-bold">Pick up from:</P>
+                <table style="width: 100%">
+                    <tr>
+                        <td class="nowrap" style="vertical-align: top">Name: </td>
+                        <td class="padding-left-5">{{resturant_name}}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="nowrap" style="vertical-align: top">Address: </td>
+                        <td class="padding-left-5">{{resturant_address}}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="nowrap" style="vertical-align: top">Phone: </td>
+                        <td class="padding-left-5">{{resturant_phone}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+                <P class="text-bold">Order Items:</P>
+                <table style="width: 100%; ">
+                    <th style="width:60%"></th>
+                    <th></th>
+
+                    {{#each order_items}}
+                    <tr>
+                        <td>
+                            {{quantity}} &times; {{name}}<br>
+
+
+
+                            {{#each (parse add_ons_json)}}
+                            <p style="font-size: 95%;padding-left: 5.80%;padding-right: 5%;margin:0">+{{this}}</p>
+                            {{/each}}
+
+
+
+
+                            <p  style="font-size: 85%;padding-left: 5.80%;padding-right: 5%;margin:5px"><i>{{detail}}</i></p>
+                        </td>
+                        <td style="vertical-align: top"> {{{format2decimal (x unit_price quantity)}}}</td>
+
+                    </tr>
+
+                    {{/each}}
+                </table>
+                <div class="row">
+                    <div class="col-sm-5">
+                        {{#equal (notnull order_image) "notnull"}}
+                        <img src="{{order_image}}" style="max-height: 200px" height="200" width="100%">
+
+
+
+                        {{/equal}}
+                    </div>
+                    <div class="col-sm-7">
+                        <table width="100%">
+                            <tr>
+                                <td align="right" style="padding-right: 5%" width="30%">Tax:</td>
+                                <td>{{money tax}}</td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="padding-right: 5%">Delivery Fees:</td>
+                                <td>{{money delivery_fee}}</td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="padding-right: 5%">Delivery Tips:</td>
+                                <td>{{money tip}}</td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="padding-right: 5%">Discount:</td>
+                                <td>{{#equal discount_amount -1}}N/A{{else}}({{money discount_amount}}){{/equal}}</td>
+                            </tr>
+                            <tr>
+                                <td align="right" style="padding-right: 5%">Total:</td>
+                                <td>{{money total_cost}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <!-- new code for image
+        <div>
+            {{#if order_image}}
+            <img src="{{order_image}}" style="max-height: 130px" height="130">
+
+
+            {{/if}}
+
+        </div>
+        -->
+
+        <hr>
+
+
+        <div class="row">
+            <div class="col-xs-6">
+                <P class="text-bold">Delivery Details:</P>
+                <p>
+                    Driver: {{carrier_name}}
+                    <br>Order Placement Time: {{{dateTime placement_time}}}
+                    <br>Order Accept Time: {{{dateTime start_time}}}
+                    <br>Order Delivery Time: {{{dateTime delivery_time}}}
+                    <br>Order Completion    Time: {{#with (diffDate start_time delivery_time)}}
+                    {{#if day}}{{day}} days{{/if}}
+                    {{#if hour}}{{hour}} hours{{/if}}
+                    {{minute}} mins
+                    {{else}}
+                    N/A
+                    {{/with}}
+                </p>
+
+                {{#equal is_force_completed "true"}}<b>(Dispatcher Complete)</b>
+                {{/equal}}
+
+
+                <br>&nbsp;
+
+
+
+            </div>
+            <div class="col-xs-6">
+                <P class="text-bold">Delivery Instructions:</P>
+                <p>
+                    {{delivery_instruction}}
+                </p>
+                {{#equal (notnull dispatcher_note) "notnull"}}
+                <br>
+                <P class="text-bold text-color-orange">Redrop Instructions:</P>
+                <p>
+                    {{dispatcher_note}}
+                </p>
+                {{/equal}}
+
+
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">
+                <P class="text-bold">Payment Details:</P>
+                <p>
+                    Payment Method: {{_toSpace payment_type}}
+                    {{#equal payment_type "CREDIT_CARD"}}
+                    <br>Credit Card Type: {{_toSpace credit_card_type}}
+                    <br>Last Four Digit: {{credit_card_id}}
+                    {{/equal}}
+                </p>
+
+            </div>
+
+            <div class="col-xs-6">
+                <P class="text-bold">Proof of Delivery:</P>
+                {{#equal orderStatus "ALREADY_DELIVERED"}}
+                <P>
+
+                    {{#equal (notnull signature_path) "notnull"}}
+                    <img src="{{signature_path}}" style="max-height: 130px" height="130">
+
+                    {{else}}No Proof Of Delivery (POD) Taken
+
+                    {{/equal}}
+                    <br>
+
+                    <br>Customer Feedback: {{feedback feedback}}
+                    <br>
+                    Delivery Location (Lat, Lng): {{format3decimal delivery_latitude}}, {{format3decimal delivery_longitude}}
+                </p>
+                {{else}}
+                <p>
+                    N/A
+                </p>
+                {{/equal}}
+            </div>
+        </div>
+        <div id="orderStatus" orderstatus="{{orderStatus}}" style="display: none;"><div>
+
+        </div>
+        </div>
+
+</script>
+

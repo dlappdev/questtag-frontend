@@ -1,0 +1,116 @@
+<script id="template-map" type="text/x-handlebars-template">
+<div class="left-wrapper ui-widget-content pull-left w-100  map-content margin-top-60" style="">
+
+        <div class="map_wrapper" id="map_div">
+        </div>
+
+        <div class="bottom_contoller w-100 position-absolute" >
+            <div class="controll_wrapper padding-left-30 pull-left ">
+
+                <a href="javascript:void(0)" id="carrier"><span class="fa fa-toggle-on fa-lg"></span>
+                    <img src='imgs/map/car.png' style="max-height: 18px" alt="Driver"> <span class="on_off">
+                            On</span></a>
+                <div style="display: inline-block ;
+                        width: 25px ;" >&nbsp;</div>
+                <a href="javascript:void(0)" id="order"><span class="fa fa-toggle-on fa-lg"></span>
+                    <img src='imgs/map/home.png' style="max-height: 18px" alt="Customer"> <span class="on_off">
+                            Off</span></a>
+                <div style="display: inline-block ;
+                        width: 0px ;" >&nbsp;</div>
+                <a href="javascript:void(0)" id="zone"><span class="fa fa-toggle-on fa-lg"></span>
+                    <img src='imgs/map/store.png' style="max-height: 18px" alt="Restaurant"> <span class="on_off">
+                            Off</span></a>
+                <div style="display: inline-block ;
+                        width: 25px ;" >&nbsp;</div>
+
+
+            </div>
+
+
+            <div class="zoom-controll pull-xs-right">
+
+
+                <a href="javascript:void(0)" id="mapZoomIn">
+                    <span class="fa fa-plus-circle"></span>
+                </a>
+                <a href="javascript:void(0)" id="mapZoomOut">
+                    <span class="fa fa-minus-circle" ></span>
+                </a>
+            </div>
+        </div>
+
+</div>
+    </script>
+
+
+
+
+<script id="template-restaurant-marker" type="text/x-handlebars-template">
+    <div class='wrapper {{css}}' data-marker-type="{{info.type}}" data-id="{{info.id}}"
+         {{#if info.name}}
+         data-toggle="tooltip" data-placement="top" title="<span class='text-nowrap'>{{info.name}}</span>"
+         {{/if}}
+    >
+    <div class="">
+        <div class='pin'>
+        </div>
+    </div>
+    <span class='after'>{{{name}}}</span>
+    <div class='pulse'></div>
+    </div>
+
+</script>
+
+<script id="template-carrier-marker" type="text/x-handlebars-template">
+    <div class="text-xs-center cursor-pointer carrier-marker  {{#if waiting}}waiting{{/if}}">
+        {{shortName}}
+    </div>
+</script>
+
+<script id="template-customer-popover" type="text/x-handlebars-template">
+    <div class="popover top background-color-black-alfa text-color-E2E2E4-white position-relative radius-0" style="display:block ; z-index:-1 ; width:215px ;">
+        <div class="arrow" style="border-top-color:rgba(0,0,0,.75) ;"></div>
+        <h3 class="popover-title background-color-black-alfa padding-left-2 padding-right-2">
+            <span id="top-left" class="pull-left">{{orderNumber}}</span>
+            <span id="top-right"
+                  class="pull-right padding-right-5"
+                  style="font-size:12px ; line-height:16px ; font-style:italic ;"></span>
+            <span>&nbsp;</span>
+        </h3>
+        <div class="popover-content padding-left-2 padding-right-2">
+            <div class="customer_div">
+                <p class="left-icon-keeper background-home" id="customer-info">
+                    {{name}}
+                    <br>
+                    {{address}}
+                </p>
+                <div class="bottom-border-white-A8A9AD margin-left-25"></div>
+            </div>
+            <div class="restaurant_div">
+                <p class="left-icon-keeper background-restaurant" id="restaurant-info">{{restaurantName}}</p>
+            </div>
+            <div class="carrier_div for-top-border-position">
+
+                <div class="left-icon-keeper background_car" id="carrier-info">{{carrierName}}
+                    {{#equal orderStatus 'NOT_ACCEPTED'}}
+                    <div class="pull-right-with-margin-15 waiting_driver_container padding-top-5" style="">
+                        <a href="javascript:void(0)" class="btn btn-sm btn-questtag"  data-task="unassign-order-not-accepted" data-refid="{{orderId}}">
+                            <i class="fa fa-user-times"></i>
+                        </a>
+                    </div>
+                    {{else}}
+                    <!--Reassign button will be shown until the order is picked up -->
+                    {{#unless  afterPickedUp}}
+                    <div class="pull-right-with-margin-15 text-xs-center padding-top-5" >
+                        <a href="javascript:void(0)"  class="btn btn-sm btn-questtag" data-task="assignment" data-refid="{{orderId}}" data-assigned="{{#if accepted}}true{{else}}false{{/if}}">
+                            <i class="fa fa-user-plus"></i>
+                        </a>
+                    </div>
+                    {{/unless}}
+                    <br>
+                    {{/equal}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

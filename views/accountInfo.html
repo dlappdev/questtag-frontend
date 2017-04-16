@@ -1,0 +1,89 @@
+<script id="template-account-info" type="text/x-handlebars-template">
+
+    <div class="row dispatcher-menu-div ">
+        <div class="col-xs-2 col-xm-2">
+        </div>
+        <div id="menuDivDropdown" class=" col-xs-8 col-xm-8 background-white padding-top-40 p-l-3 p-r-3">
+
+            <h4 class="text-clor-green-87ec00">MY ACCOUNT</h4>
+            <hr>
+
+            <form class="form-horizontal account-info-text" action="" role="form" id="redropOrderForm">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-xm-2">Profile</label>
+
+                    <label class="col-sm-4 col-xm-4 text-xs-right  text-color-898A8D-grey">Username:</label>
+
+                    <div class="col-sm-6 col-xm-6  " id="userNameShow">
+                        <span class="pull-xs-left">Amit</span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-6 col-xm-6 text-xs-right text-color-898A8D-grey">Email:</label>
+
+                    <div class="col-sm-6 col-xm-6 ">
+                        <span class="pull-xs-left">amitcse@gmail.com</span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-6 col-xm-6 text-xs-right text-color-898A8D-grey">Password:</label>
+
+                    <div class="col-sm-4 col-xm-4 ">
+                        <span class="pull-xs-left ">********</span>
+                    </div>
+                    <div class="col-sm-2 col-xm-2  ">
+                        <button id="passChange" href="#changePassword" data-toggle='load'
+                                class="change-button pull-xs-left text-clor-green-9AC93B-hover text-color-898A8D-grey">
+                            Change
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-6 col-xm-6 text-xs-right text-color-898A8D-grey">Profile Picture:</label>
+                    <div class="col-sm-4 col-xm-4">
+                        <img src="imgs/ic_info.png" class="accountPageImage pull-xs-left" width="40"
+                             height="40" alt=""/>
+                    </div>
+                    <div class="col-sm-2 col-xm-2 ">
+
+                        <button id="propicChange" href="#changePropic"
+
+                                data-toggle='load'
+                                class="change-button pull-xs-left text-clor-green-9AC93B-hover text-color-898A8D-grey">
+                            Change
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-xm-2 ">Location</label>
+                    <label class="col-sm-4 col-xm-4 text-xs-right text-color-898A8D-grey">City:</label>
+
+                    <div class="col-sm-4 col-xm-4 ">
+                        <span class="pull-xs-left" id="CityName">Shewrapara, Mirpur, Dhaka</span>
+                    </div>
+
+                    <div class="col-sm-2 col-xm-2">
+                        <button id="locationChange" value="{{location}}"
+                                class="change-button pull-xs-left text-clor-green-9AC93B-hover text-color-898A8D-grey">
+                            Change
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div id="currencyPush">
+            </div>
+        </div>
+
+        <div class="col-xs-2 col-xm-2  ">
+        </div>
+
+    </div>
+</script>

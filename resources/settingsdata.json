@@ -1,0 +1,63 @@
+{
+  "companyId": 4,
+  "areaId": 6,
+  "allActiveSettings": [{
+    "setting": {
+      "setting_id": 1,
+      "name": "will_send_email"
+    },
+    "status": true
+  }, {
+    "setting": {
+      "setting_id": 2,
+      "name": "will_send_sms"
+    },
+    "status": true
+  }, {
+    "setting": {
+      "setting_id": 3,
+      "name": "delivery_only"
+    },
+    "status": false
+  }, {
+    "setting": {
+      "setting_id": 4,
+      "name": "scheduled_delivery"
+    },
+    "status": false
+  }, {
+    "setting": {
+      "setting_id": 5,
+      "name": "will_auto_assign"
+    },
+    "status": false
+  }, {
+    "setting": {
+      "setting_id": 6,
+      "name": "check_geofence"
+    },
+    "status": false
+  }],
+  "allInactiveSettings": [],
+  "fixedPickUpAdress": null,
+  "deliveryOnlyMaxtimeInSeconds": 5400,
+  "scheduleOrderLeadTimeInSeconds": 10800,
+  "orderAcceptanceTimeOutInSeconds": 300,
+  "geofenceRadiusInMeter": 1609,
+  "fixedDriverFeePerDelivery": 3,
+  "timeZoneOffsetInMinutes": -480,
+  "timeLimitForOrderToBeActivatedInMinutes": 0,
+  "mapSettings": {
+    "latitude": 23.680504913254037,
+    "longitude": 90.03425164570308,
+    "zoomLevel": 11
+  },
+  "autoAssignmentOn": false,
+  "geofenceCheckOn": false,
+  "smsNotificationOn": true,
+  "emailNotificationOn": true,
+  "sheduledDeliveryOn": false,
+  "onlyDeliveryTypeOn": false
+}
+
+

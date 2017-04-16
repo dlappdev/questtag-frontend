@@ -1,0 +1,162 @@
+.pseudo-table {
+    font-size:12px;
+}
+.pseudo-table .left-collumn {
+
+}
+.pseudo-table .left-collumn .each-row    {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ECECEC;
+    padding-left: 10px;
+    padding-right: 3px;
+    cursor:pointer;
+}
+.pseudo-table .left-collumn .each-row:hover    {
+    color: #99C73B;
+}
+.pseudo-table .right-collumn {
+
+}
+
+.pseudo-table .right-collumn .each-row {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ADB9C2;
+}
+
+.pseudo-table #expand-state .each-row {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ADB9C2;
+}
+
+.min-height-100{
+    min-height:100%;
+}
+
+.for-height-100-percent
+{
+    min-height: 100%;
+    margin-top: -40px;
+    padding-top: 40px;	
+}
+
+.height-100percent{
+    height:100%
+}
+.vertical-line {
+    width: 3px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+
+    background-color: #53698A;
+    border-right: 1px solid #FFF;
+    z-index:10;
+}
+
+.back-color-656e7b{
+    background-color: #656e7b;
+}
+
+.background-354051{
+    background-color: #354051;
+}
+.dash-column{
+    padding-left: 10px;
+}
+.height-1{
+    height: 1px;
+}
+
+.border-left-53698A{
+    border-left: 4px solid #53698A !important;
+
+}
+
+.dashboardButton{
+    color: #9da3b3;
+    background-color: #656e7b;
+    border-style: none;
+}
+.dashboardButton:hover{
+    background-color: #53698A !important;
+    color:white;
+}
+.dashboardButton:active{
+    background-color: #53698A !important;
+    color:white;
+}
+
+.dashboardButton:focus{
+    background-color: #53698A !important;
+    color:white;
+}
+
+
+.background-color-9da3b3{
+    background-color: #9da3b3;
+}
+.background-color-f4f7fa{
+    background-color: #f4f7fa;
+}
+
+.text-color-5a5a5a{
+    color:#5a5a5a !important;
+}
+
+.text-color-2C353A{
+    color:#2C353A;
+}
+
+
+
+.assigned-order-div{
+    bottom: 0px;
+    top: 40px;
+    right: 0px;
+    left: 0px;
+
+
+}
+
+.small-text3{
+    font-size:12px;
+}
+.small-text-driver{
+
+    font-size:12px;
+}
+
+.assignedOrder{
+    bottom: 0px;right: 0px;
+    left: 0px;
+}
+
+.col-1{
+    float:left;width:46%;
+}
+.col-2{
+    float:left;width:8%;
+
+}
+
+@media (max-width:500px) {
+    .small-text-special {
+        font-size: 3px !important;
+    }
+
+    .small-text {
+        font-size: 12%;
+    }
+
+    .small-text3 {
+        font-size: 3px;
+    !important;
+    }
+
+    .small-text-driver{
+        font-size:3px !important;
+    }
+}

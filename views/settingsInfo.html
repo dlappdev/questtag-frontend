@@ -1,0 +1,271 @@
+<script id="template-settings-info" type="text/x-handlebars-template">
+<div class="row dispatcher-menu-div" id="settings">
+    <div class="col-xs-2"  >
+
+    </div>
+    <div id="settingsDiv" class="background-white small-text-settings col-xs-8 padding-top-40 p-l-3 p-r-3">
+
+        <form class="form-horizontal margin-left-30 margin-right-60 " action="" role="form" id="settingsForm">
+            <h4 class="text-clor-green-87ec00">SETTINGS</h4>
+            <hr>
+            <div class="form-group row">
+                <label class="col-xm-4 col-sm-4 col-md-4 "><strong>Customer tracking</strong></label>
+                <label class="col-xm-4 col-sm-5 col-md-5  text-xs-right text-color-898A8D-grey">Email notifications</label>
+                <div class="col-xm-4 col-sm-3 col-md-3  " id="userNameShow">
+
+
+                    <div class="btn-group " data-toggle="buttons">
+                        <label   class="btn  active border-radius-0 radio-label
+                        backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                        text-color-bbb-not-active text-xs-center small-text-special" autocomplete="off" checked value='ON'>
+                            <input type="radio"  name="email-setting" class="radio-button-settings"  autocomplete="off" value='OFF' checked> On
+                        </label>
+                        <label class="btn m-l-0 border-radius-0 radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special ">
+                            <input type="radio" name="email-setting" class="radio-button-settings"   autocomplete="off" value='OFF'> Off
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label class="col-xm-8 col-md-9  text-xs-right text-color-898A8D-grey">SMS notifications</label>
+
+                <div class="col-xm-4 col-md-3 ">
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <label class="btn  active radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="sms-setting" autocomplete="off" checked value='ON'> On
+                        </label>
+                        <label class="btn radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="sms-setting" autocomplete="off" value='OFF'> Off
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+            <div class="form-group row">
+                <label class="col-xm-8 col-md-9 "><strong>Show available drivers only</strong></label>
+
+
+                <div class="col-xm-4 col-md-3 col-form-label">
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <label class="btn radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="delivery-type" autocomplete="off" value='' data-setValue='DeliveryType.ON_DEMAND'>
+                            On
+                        </label>
+                        <label class="btn  active radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="delivery-type" autocomplete="off" checked value='' data-setValue='DeliveryType.SCHEDULE_DELIVERY'>
+                            Off
+                        </label>
+
+                    </div>
+
+                </div>
+                <!--
+                <div id="only-onDemand">
+                -->
+
+
+
+            </div>
+
+
+            <hr>
+            <div class="form-group row">
+
+                <label class="col-xm-8 col-sm-9"><strong>Auto-dispatching</strong></label>
+
+
+                <div class="col-xm-4 col-sm-3 col-form-label">
+
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <label class="btn  active radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="auto-dispatching" autocomplete="off" checked value='ON'>
+                            On
+                        </label>
+                        <label class="btn radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active text-xs-center small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="auto-dispatching" autocomplete="off" value='OFF'> Off
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label class="col-xm-8 col-sm-8 col-md-9"><strong>Location update validation</strong></label>
+
+
+
+                <div class="col-xm-4 col-sm-4 col-md-3 col-form-label">
+
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <label class="btn  active radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="check-geofence" autocomplete="off" checked value='ON'> On
+                        </label>
+                        <label class="btn radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="check-geofence" autocomplete="off" value='OFF'> Off
+                        </label>
+                    </div>
+
+                </div>
+                <div id="only-onGeofence">
+                    <div class="col-sm-12"><br></div>
+                    <div class="form-group row">
+                        <label class="col-sm-8 col-form-label text-xs-right text-color-898A8D-grey" >Radius (mile)</label>
+                        <div class="col-sm-4">
+                            <input name="geofence-radius" min="0" max="3958" type="number" class="form-control radius-0" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label class="col-xm-6  col-sm-6"><strong>Business type</strong></label>
+
+
+                <div class="col-xm-6 col-sm-6 col-form-label">
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <label class="btn  active radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active small-text-special"
+                        >
+
+                            <input type="radio" class="radio-button-settings" name="bussiness-type" autocomplete="off"  value='ON' data-setValue='BusinessModel.PICKUP_N_DELIVERY'>
+                            Pickup and Delivery
+                        </label>
+                        <label class="btn radio-label
+                                       backgorund-color-conifer-99C73B-active background-color-E4E5E6-athens-grey
+                                       text-color-bbb-not-active small-text-special"
+                        >
+                            <input type="radio" class="radio-button-settings" name="bussiness-type" autocomplete="off" checked value='OFF' data-setValue='BusinessModel.DELIVERY_ONLY' >
+                            Delivery Only
+                        </label>
+                    </div>
+
+                </div>
+                <div id="only-on-deliveryOnly">
+
+
+                    <div class="col-xs-12"><br></div>
+
+                    <div class="col-md-6 col-sm-12 pull-sm-right col-xs-offset-5">
+
+                        <input name="contact-phone" type="text" class="form-control radius-0" placeholder="Contact Phone"
+                        >
+                        <br>
+                        <textarea name="pickup-location" class="form-control radius-0" placeholder="Pickup location"
+                                  data-toggle="address-autocomplete"
+                        ></textarea>
+
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div>
+                <div class="col-sm-12"><br></div>
+
+                <div class="form-group row">
+                    <label class="col-xm-7 col-md-6 col-sm-8 "><strong>Maximum time allowed for delivery (on-demand)</strong></label>
+                    <div class="col-xm-4  col-md-5 col-sm-3 col-form-label">
+                        <input name="max-time-limit" type="text" class="form-control radius-0" placeholder="">
+                    </div>
+                    <div class="col-xm-1 col-md-1 col-sm-1 col-form-label" style="line-height : 34px ;">mins</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-group row">
+                <label class="col-sm-5 col-md-6 col-lg-8 "><strong>Future order time window</strong></label>
+                <div class="col-sm-6  col-md-5 col-lg-3 col-form-label">
+                    <input name="scheduled-order-lead-time" type="text" class="form-control radius-0" placeholder="">
+                </div>
+                <div class="col-sm-1 col-form-label" style="line-height : 34px ;">mins</div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label class="col-sm-5 col-md-6 col-lg-8 "><strong>Order response time</strong></label>
+
+
+                <div class="col-sm-6  col-md-5 col-lg-3 col-form-label">
+                    <input name="order-respose-time" type="text" class="form-control radius-0" placeholder="">
+
+                </div>
+                <div class="col-sm-1 col-form-label" style="line-height : 34px ;">mins</div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label class="col-sm-5 col-md-6 col-lg-7"><strong>Driver payment (<span id="driverFeesId"></span>)</strong></label>
+
+
+                <div class="col-sm-5  col-md-4 col-lg-3 col-form-label">
+
+                    <input name="fixed-driver-fee-per-delivery" type="text" style="top : 0;" class="form-control radius-0" placeholder="">
+
+                </div>
+                <div class="col-sm-2 col-form-label" style="line-height : 34px ; ">per delivery</div>
+            </div>
+
+            <hr>
+
+
+
+            <div class="form-group  row" style="padding-top: 30px">
+
+
+                <label class="col-sm-4 col-md-4 col-lg-4 col-form-label text-color-898A8D-grey"></label>
+                <div class="col-sm-4  col-md-3 col-lg-2 m-b-1 ">
+
+                    <button data-task="back" data-url="" class="btn btn-questtag btn-block border-radius-2" >Cancel</button>
+                </div>
+                <div class="col-sm-4 col-md-3 col-lg-2 btn-group">
+                    <button class="btn btn-questtag btn-block border-radius-2 " data-saveModal="setting-modal" >Save</button>
+                </div>
+            </div>
+        </form>
+        <div style="display: none" class="alert alert-success alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Success!</strong> Settings are saved.
+        </div>
+    </div>
+    <div class="col-xs-2 " >
+
+    </div>
+    </div>
+
+</script>

@@ -1,0 +1,15 @@
+<script id="template-order-item-row" type="text/x-handlebars-template">
+    <div class="row padding-bottom-3 has-hover-item m-y-1" data-order-item="{{number}}" style="position: relative">
+        <div class="col-sm-4 padding-right-5">
+            <input name="item[][name]" class="form-control" placeholder="name" type="text">
+        </div>
+        <div class="col-sm-4 padding-left-0 padding-right-5">
+            <input name="item[][unit-price]" class="form-control" placeholder="price" type="number" step="0.01">
+        </div>
+        <div class="col-sm-4 padding-left-0">
+            <input name="item[][quantity]" class="form-control" placeholder="qty" type="number">
+        </div>
+        <a href="javascript:void(0)" tabindex="-1" style="position:absolute ; right: 0px ; top:5px ;" class="show-on-hover text-color-grey" data-toggle="delete-element" data-select="[data-order-item='{{number}}']"><i class="fa fa-close"></i></a>
+    </div>
+
+</script>

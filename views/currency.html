@@ -1,0 +1,50 @@
+<div id="currencyDiv"  style="background-color: white;">
+    <form class="margin-left-30 margin-right-60 " action="" role="form"  >
+
+        <div class="form-group row account-info-text">
+            <label class="col-sm-6 col-xm-6 control-label text-xs-right text-color-898A8D-grey">Currency:</label>
+            <div class="col-sm-6 col-xm-6">
+
+                <div class="bfh-selectbox bfh-currencies" data-currency="" data-flags="true">
+                    <input type="hidden" value="">
+                    <a class="bfh-selectbox-toggle searchInput"  role="button" data-toggle="bfh-selectbox" href="javascript:void(0)">
+                        <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                        <b class="caret"></b>
+                    </a>
+                    <div class="bfh-selectbox-options">
+                        <input id="mainSelect" type="text" class="bfh-selectbox-filter">
+                        <div role="listbox">
+                            <ul role="option">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+
+
+        <div class="form-group row" style="padding-top: 30px">
+
+
+            <label class="col-sm-4 col-sm-4 col-md-4 col-lg-4 col-form-label text-color-898A8D-grey"></label>
+            <div class="col-sm-4 col-sm-4  col-md-3 col-lg-2 m-b-1 ">
+                <button data-task="back"  class="btn btn-questtag btn-block border-radius-2 small-text-special" >Cancel</button>
+            </div>
+            <div class="col-sm-4 col-sm-4 col-md-3 col-lg-2">
+                <button id="saveCurrency" value="" data-symbol="" class="btn btn-questtag btn-block border-radius-2 small-text-special" >Save</button>
+            </div>
+        </div>
+    </form>
+    <div style="display: none" class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success!</strong> Currency is saved.
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="assets/styles/libs/bootstrap-formhelpers.css">
+<script type="text/javascript" src="assets/scripts/lib/bootstrap-formhelpers-currencies.js"></script>
+<script type="text/javascript" src="assets/scripts/lib/bootstrap-formhelpers.js"></script>

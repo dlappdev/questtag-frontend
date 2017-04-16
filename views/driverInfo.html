@@ -1,0 +1,260 @@
+<script id="template-driver-info" type="text/x-handlebars-template">
+
+
+    <div id="driverContainer" class="small-text">
+
+        <div class="driver_header ">
+
+            <div class="padding-left-5 padding-right-5 padding-top-15 padding-bottom-5 row">
+
+
+                <div class="col-sm-7 col-xm-5 padding-right-25 resizable">
+                    <form class="padding-left-5 padding-right-5 searchbox" >
+                        <div class="rectangular-input right-inner-addon">
+                            <a href="javascript:void(0)"><i class="fa fa-search text-color-9da3b3"></i></a><input type="text" class='form-control searchInput' placeholder="Search" id="search_here">
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="col-sm-5 col-xm-7 driverButtonsContainer" role="group" aria-label="...">
+                    <a href="#driver"  class="btn btn-questtag-tab min-width-140 small-text-special" data-toggle="load" data-arg="driver" id="driver">
+                        Driver List
+                    </a>
+                    <a href="#driverPayment" class="btn btn-questtag-tab min-width-140 small-text-special" data-toggle="load" data-arg="driverPayment" id="driverPayment">
+                        Daily Payment
+                    </a>
+                    <button class="btn btn-questtag min-width-130 text-xs-right pull-xs-right addDriver small-text-special"  data-toggle="open-new-driver"><i class="fa fa-plus padding-top-4"  ></i> New Driver </button>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    <div class="driver-list-wrapper driver-info-table">
+        <table id="table_id_carrier" class="table " cellspacing="0" width="100%">
+            <thead class="back-color-444b5d">
+            <tr>
+                <td class="text-nowrap">Name</td>
+                <td>Phone</td>
+                <td>Email</td>
+                <td>Driver ID</td>
+                <td>Vehicle</td>
+                <td>Status</td>
+                <td></td>
+            </tr>
+            </thead >
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+        <div class="driver-payment-wrapper driver-info-table">
+            <table id="table_driver_payment" class="table " cellspacing="0" width="100%">
+                <thead class="back-color-444b5d">
+                <tr>
+                    <td class="text-nowrap">Name</td>
+                    <td>Phone Number</td>
+                    <td># Of Completed Deliveries</td>
+                    <td>Delivery Fees</td>
+                    <td>Online Tips</td>
+                    <td>Fees + Tips</td>
+                    <td>Adjustments</td>
+                    <td>Payment Due</td>
+                </tr>
+                </thead >
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+    <div class="modal fade" id="modal-New-driver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="modal-content " data-action="ApiConstant.prefix+ApiConstant.INSERT_CARRIER" method="post" id="form-new-order">
+                <div class="modal-header back-color-444b5d">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <div class="modal-title" id="myModalLabel">New Driver</div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal " action="" role="form" id="newDriverForm">
+                        <div class="form-group row">
+                            <label for="input-name-carrier" class="col-xs-3 col-form-label text-xs-right">Name:</label>
+                            <div class="col-xs-9">
+                                <input type="text" name="name" class="form-control" id="input-name-carrier" placeholder="" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="input-phone-number-carrier" class="col-xs-3 col-form-label text-xs-right">Phone Number:</label>
+                            <div class="col-xs-9">
+                                <input type="text" name="phone_number" class="form-control" id="input-phone-number-carrier" placeholder="" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="input-email-carrier" class="col-xs-3 col-form-label text-xs-right">Email:</label>
+                            <div class="col-xs-9">
+                                <input type="email" name="email" class="form-control" id="input-email-carrier" placeholder="" required>
+                            </div>
+                        </div>
+
+                        <div data-ui="show-error" class="alert alert-danger" style="display: none">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer background-color-F3F3F4 bottom-radius-6">
+                    <div class="row">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                        <button class="btn btn-questtag  btn-block btn-lg border-radius-2" data-dismiss="modal">Cancel</button>
+                    </div>
+
+                        <div class="col-sm-3">
+                            <button type="submit" class="btn btn-questtag btn-block btn-lg border-radius-2 ">Save</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="modal-driver-profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header back-color-444b5d">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel3"><span id="infoMessageModal-title">Driver Profile</span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="show-before-loading padding-top-20 padding-bottom-20 text-color-grey padding-left-10" style="display: none ;">
+                        <i class="fa fa-spin fa-spinner"></i> loading...
+                    </div>
+                    <div class="show-after-loading">
+
+                    </div>
+                </div>
+
+
+                <div class="modal-footer bottom-radius-6">
+                    <div class="row">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-questtag  btn-block btn-lg border-radius-2" data-dismiss="modal">Cancel</button>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <button type="submit" class="btn btn-questtag btn-block btn-lg border-radius-2 " data-toggle="delete-driver">Save</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="template-driver-profile" type="text/x-handlebars-template">
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            {{#if carrier.imagePath}}
+            <img src="Image/{{carrier.imagePath}}" height="150">
+            {{else}}
+            <img src="imgs/carrier_images/default_pic.png" height="150">
+            {{/if}}
+            <div class="text-center padding-top-20">
+                {{carrier.name}}
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-6 text-xs-right">
+                    Phone Number:
+                    </div >
+                <div class="col-sm-6 text-color-9da3b3">
+                    {{carrier.phoneNumber}}
+                </div>
+                </div>
+            <div class="row">
+                <div class="col-sm-6 text-xs-right ">
+                    E-mail:
+                </div >
+                <div class="col-sm-6 text-color-9da3b3">
+                    {{carrier.email}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-xs-right " >
+                    Area:
+                </div >
+                <div class="col-sm-6 text-color-9da3b3">
+                    {{carrier.areaName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-xs-right">
+                    Vehicle:
+                </div >
+                <div class="col-sm-6 text-color-9da3b3">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 text-xs-right">
+                    Plate No:
+                </div >
+                <div class="col-sm-6 text-color-9da3b3">
+                    {{#if carrier.vehicle.plate}}
+                    {{carrier.vehicle.plate}}
+                    {{else}}
+                    N/A
+                    {{/if}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</script>
+
+
+<script id="template-driver-delete-confirmation" type="text/x-handlebars-template">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-questtag" style="width: 450px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="dismissable-dialog"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel2"><span id="infoMessageModal-title">Delete Driver</span></h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to permanently delete <strong>{{name}}</strong>?
+                </div>
+
+                <div class="modal-footer" style="background: transparent; border-top: none;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-questtag btn-block" data-dismiss="dismissable-dialog">Cancel</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-danger btn-block border-none" data-toggle="delete-driver-confirm">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
