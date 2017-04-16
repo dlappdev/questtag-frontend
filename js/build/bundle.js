@@ -2131,7 +2131,7 @@
                 iconAndOrder = '<span><i class="fa fa-clock-o" aria-hidden="true"></i>' + ' ' + value.orderNumber + '</span>';
             }
             else if (value.parentId > 0) {
-                iconAndOrder = '<span><img width="14" height="14" alt="" src="/imgs/redrop.png">' + ' ' + value.orderNumber + '</span>';
+                iconAndOrder = '<span><img width="14" height="14" alt="" src="imgs/redrop.png">' + ' ' + value.orderNumber + '</span>';
 
             }
             else {
@@ -2260,7 +2260,7 @@
                 iconAndOrder = '<span><i class="fa fa-clock-o" aria-hidden="true"></i>' + ' ' + value.orderNumber + '</span>';
             }
             else if (value.parentId > 0) {
-                iconAndOrder = '<span><img width="14" height="14" alt="" src="/imgs/redrop.png">' + ' ' + value.orderNumber + '</span>';
+                iconAndOrder = '<span><img width="14" height="14" alt="" src="imgs/redrop.png">' + ' ' + value.orderNumber + '</span>';
 
             }
             else {
