@@ -14,23 +14,23 @@
     var qtController = null;
 
     function QtController() {
-        this.loginPageContent = "loginPage.html";
-        this.dashboardContainerContent = "dbContainer.html";
-        this.mapContent = "map.html";
-        this.avatarImageTemplateContent = "avatarImageTemplate.html";
-        this.dashboardContent = "dashboard.html";
-        this.accountInfoContent = "accountInfo.html";
-        this.billingInfoContent = "billingInfo.html";
-        this.driverInfoContent = "driverInfo.html";
-        this.settingsInfoContent = "settingsInfo.html";
-        this.reportContent = "report.html";
-        this.orderContent = "order.html";
-        this.propicChangeContent = "propicChange.html";
-        this.passwordChangeContent = "passwordChange.html";
-        this.locationChangeContent = "locationChange.html";
-        this.orderItemContent = "orderItemRow.html";
-        this.orderDetailContent = "orderDetail.html";
-        this.dashboardOrderRowContent = "dashboardOrderRow.html";
+        this.loginPageContent = "views/loginPage.html";
+        this.dashboardContainerContent = "views/dbContainer.html";
+        this.mapContent = "views/map.html";
+        this.avatarImageTemplateContent = "views/avatarImageTemplate.html";
+        this.dashboardContent = "views/dashboard.html";
+        this.accountInfoContent = "views/accountInfo.html";
+        this.billingInfoContent = "views/billingInfo.html";
+        this.driverInfoContent = "views/driverInfo.html";
+        this.settingsInfoContent = "views/settingsInfo.html";
+        this.reportContent = "views/report.html";
+        this.orderContent = "views/order.html";
+        this.propicChangeContent = "views/propicChange.html";
+        this.passwordChangeContent = "views/passwordChange.html";
+        this.locationChangeContent = "views/locationChange.html";
+        this.orderItemContent = "views/orderItemRow.html";
+        this.orderDetailContent = "views/orderDetail.html";
+        this.dashboardOrderRowContent = "views/dashboardOrderRow.html";
     }
 
     QtController.prototype.loadLoginPage = function () {
