@@ -12,8 +12,8 @@
         $(document).on('click', "#expand-compress-icon", function (e) {
             e.preventDefault();
             console.log("clicking expand button");
-
         });
     });
+
     exports.compressAndMapAdded = compressAndMapAdded;
 }());

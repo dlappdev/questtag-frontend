@@ -106,32 +106,26 @@
         });
 
         $.get("resources/driverdata.json", function (data) {
-            console.log(data);
             dataManager.setDriverList(data);
         });
 
         $.get("resources/settingsdata.json", function (data) {
-            console.log(data);
             dataManager.setSettingsData(data);
         });
 
         $.get("resources/activeorders.json", function (data) {
-            console.log(data);
             dataManager.setActiveOrdersData(data);
         });
 
         $.get("resources/futureorders.json", function (data) {
-            console.log(data);
             dataManager.setFutureOrdersData(data);
         });
 
         $.get("resources/driverpayment.json", function (data) {
-            console.log(data);
             dataManager.setDriverPaymentList(data);
         });
 
         $.get("resources/markerpoints.json", function (data) {
-            console.log(data);
             dataManager.setActorPointsData(data);
         });
     };
