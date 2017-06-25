@@ -1,17 +1,17 @@
 /**
  * Created by KK on 10/18/16.
  */
+import Login from "./login.controller";
+
 (function () {
     "use strict";
+    let viewLoader = require('./view.loading');
+    let dataManager = require('./data.manager');
+    let mapViewGenerator = require("./map.controller");
 
-    var loginController = require('./login.controller');
-    var viewLoader = require('./view.loading');
-    var dataManager = require('./data.manager');
-    var mapViewGenerator = require("./map.controller");
-
-    var contentNodeId = "div#contentToPush";
-    var bodyNode = null;
-    var qtController = null;
+    let contentNodeId = "div#contentToPush";
+    let bodyNode = null;
+    let qtController = null;
 
     function QtController() {
         this.loginPageContent = "views/loginPage.html";
@@ -36,7 +36,7 @@
     QtController.prototype.loadLoginPage = function () {
         $.get(this.loginPageContent, function (data) {
             $(contentNodeId).html(data);
-            loginController.intialize(qtController);
+            new Login(qtController);
         });
     };
 
@@ -132,16 +132,12 @@
 
 
     $(document).ready(function () {
-
-
         $(window).resize(function () {
             //setDivHeight();
         });
-
         bodyNode = $("body");
         qtController = new QtController();
         qtController.loadLoginPage();
-
 
         $(document).on('click', "[data-toggle='open-new-driver']", function () {
             $("#modal-New-driver").modal('show');
