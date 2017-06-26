@@ -222,7 +222,6 @@
             case 'map':
                 loadMap();
                 break;
-
             case 'order':
                 loadOrder();
                 break;
@@ -232,11 +231,9 @@
             case 'orderPast':
                 loadPastOrder();
                 break;
-
             case 'driver':
                 loadDriver();
                 break;
-
             case 'driverPayment':
                 loadDriverPayment();
                 break;

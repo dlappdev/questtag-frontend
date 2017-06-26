@@ -2,6 +2,7 @@
  * Created by KK on 10/18/16.
  */
 import Login from "./login.controller";
+import DashboardLoader from "./dashboard.loader";
 
 (function () {
     "use strict";
@@ -16,21 +17,6 @@ import Login from "./login.controller";
     function QtController() {
         this.loginPageContent = "views/loginPage.html";
         this.dashboardContainerContent = "views/dbContainer.html";
-        this.mapContent = "views/map.html";
-        this.avatarImageTemplateContent = "views/avatarImageTemplate.html";
-        this.dashboardContent = "views/dashboard.html";
-        this.accountInfoContent = "views/accountInfo.html";
-        this.billingInfoContent = "views/billingInfo.html";
-        this.driverInfoContent = "views/driverInfo.html";
-        this.settingsInfoContent = "views/settingsInfo.html";
-        this.reportContent = "views/report.html";
-        this.orderContent = "views/order.html";
-        this.propicChangeContent = "views/propicChange.html";
-        this.passwordChangeContent = "views/passwordChange.html";
-        this.locationChangeContent = "views/locationChange.html";
-        this.orderItemContent = "views/orderItemRow.html";
-        this.orderDetailContent = "views/orderDetail.html";
-        this.dashboardOrderRowContent = "views/dashboardOrderRow.html";
     }
 
     QtController.prototype.loadLoginPage = function () {
@@ -48,62 +34,8 @@ import Login from "./login.controller";
             addHashChangeEvent();
         });
 
-        $.get(this.dashboardContent, function (data) {
-            bodyNode.append(data);
-        });
-        $.get(this.mapContent, function (data) {
-            bodyNode.append(data);
-        });
-        $.get(this.avatarImageTemplateContent, function (data) {
-            bodyNode.append(data);
-        });
-        $.get(this.accountInfoContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.billingInfoContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.driverInfoContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.settingsInfoContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.reportContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.orderContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.propicChangeContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.passwordChangeContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.locationChangeContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.orderItemContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.orderDetailContent, function (data) {
-            bodyNode.append(data);
-        });
-
-        $.get(this.dashboardOrderRowContent, function (data) {
-            bodyNode.append(data);
-        });
+        let dashboardLoader = new DashboardLoader(qtController, bodyNode);
+        dashboardLoader.loadDashboard();
 
         $.get("resources/driverdata.json", function (data) {
             dataManager.setDriverList(data);
