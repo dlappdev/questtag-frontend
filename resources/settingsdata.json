@@ -57,7 +57,7 @@
   "smsNotificationOn": true,
   "emailNotificationOn": true,
   "sheduledDeliveryOn": false,
-  "onlyDeliveryTypeOn": false
+  "onlyDeliveryTypeOn": true
 }
 
 

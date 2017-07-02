@@ -2,6 +2,7 @@
  * Created by kawnayeen on 10/19/16.
  */
 import BillingController from './billing.controller';
+import SettingsController from './settings.controller';
 
 (function () {
     "use strict";
@@ -10,7 +11,7 @@ import BillingController from './billing.controller';
     var currency_symbol = '$';
     var currency_code = 'USD';
     var driverViewGenerator = require("./driver.view.generator");
-    var settingsViewGenerator = require("./settings.controller");
+    let settingsViewGenerator;
     let billingViewGenerator;
     var orderViewGenerator = require("./order.controller");
     var mapViewGenerator = require("./map.controller");
@@ -86,9 +87,6 @@ import BillingController from './billing.controller';
     }
 
     function loadSettingsInfo() {
-        var dataToShow = '';
-        $("#dashboardDiv").putTemplate("#template-settings-info", dataToShow);
-        $("#settingsDiv").outerHeight($("#settingsDiv").height() + 60 + 'px');
         settingsViewGenerator.showSettings();
     }
 
@@ -242,6 +240,7 @@ import BillingController from './billing.controller';
     function initialize(data) {
         dataManager = data;
         billingViewGenerator = new BillingController(dataManager);
+        settingsViewGenerator = new SettingsController(dataManager);
     }
 
     exports.loadView = loadView;
