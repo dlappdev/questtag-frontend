@@ -3,11 +3,13 @@
  */
 import Login from "./login.controller";
 import DashboardLoader from "./dashboard.loader";
+import DataManger from "./data.manager";
+import InitialDataLoader from "./init.data.loader";
 
 (function () {
     "use strict";
     let viewLoader = require('./view.loading');
-    let dataManager = require('./data.manager');
+    let dataManager = new DataManger();
     let mapViewGenerator = require("./map.controller");
 
     let contentNodeId = "div#contentToPush";
@@ -36,30 +38,8 @@ import DashboardLoader from "./dashboard.loader";
 
         let dashboardLoader = new DashboardLoader(qtController, bodyNode);
         dashboardLoader.loadDashboard();
-
-        $.get("resources/driverdata.json", function (data) {
-            dataManager.setDriverList(data);
-        });
-
-        $.get("resources/settingsdata.json", function (data) {
-            dataManager.setSettingsData(data);
-        });
-
-        $.get("resources/activeorders.json", function (data) {
-            dataManager.setActiveOrdersData(data);
-        });
-
-        $.get("resources/futureorders.json", function (data) {
-            dataManager.setFutureOrdersData(data);
-        });
-
-        $.get("resources/driverpayment.json", function (data) {
-            dataManager.setDriverPaymentList(data);
-        });
-
-        $.get("resources/markerpoints.json", function (data) {
-            dataManager.setActorPointsData(data);
-        });
+        let initialDataLoader = new InitialDataLoader(dataManager);
+        initialDataLoader.loadInitialData();
     };
 
 

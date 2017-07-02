@@ -1,29 +1,17 @@
 /**
  * Created by Amit on 12/4/2016.
  */
-
 (function () {
     "use strict";
 
-    var TemplateElement = {};
-    var avatarContent;
-    var imageAvatarContent;
-    var avatarLargeContent;
-    avatarContent = $("#template-avatar").html();
-    imageAvatarContent = $("#image-avatar").html();
-    avatarLargeContent = $("#template-avatar-lg").html();
+    let imageAvatarContent = $("#image-avatar").html();
 
     function getAvatarImageFromName(option) {
-
-
         var source = option.big === true ? $("#template-avatar-lg").html() : $("#template-avatar").html();
         if (option.opacity === undefined || option.opacity === null) {
             option.opacity = 1;
         }
-
-
         var template = Handlebars.compile(source);
-
         return template({
             name: option.name,
             opacity: option.opacity,
@@ -41,7 +29,6 @@
     }
 
     function lastNameOneCharacter(fullName) {
-
         var toReturn = "";
         var names = fullName.split(" ");
         if (names.length > 1) {
@@ -52,7 +39,6 @@
         }
         return toReturn;
     }
-
 
     function makeNameSmaller(fullName) {
         var toReturn = "";
@@ -84,7 +70,6 @@
             css: option.css
         });
     }
-
 
     function AvatarImageFromImage(option) {
         var source = imageAvatarContent;

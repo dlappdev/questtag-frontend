@@ -1,0 +1,19 @@
+{
+  "companyId": 4,
+  "areaId": 6,
+  "billingInfos": [{
+    "id": 0,
+    "startDate": "2016-09-01",
+    "endDate": "2016-09-30",
+    "numberOfOrders": 1,
+    "totalAmount": 0,
+    "paid": false
+  }, {
+    "id": 0,
+    "startDate": "2016-05-01",
+    "endDate": "2016-05-31",
+    "numberOfOrders": 1,
+    "totalAmount": 0,
+    "paid": false
+  }]
+}

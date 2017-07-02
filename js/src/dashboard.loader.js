@@ -1,6 +1,7 @@
 /**
  * Created by kawnayeen on 6/26/17.
  */
+"use strict";
 export default class DashboardLoader {
     constructor(qtController, bodyNode) {
         this.qtController = qtController;

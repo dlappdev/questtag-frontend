@@ -106,9 +106,8 @@
         $('#activeOrder').addClass('active');
         $(".has-order-table").hide();
         $(".active-order-wrapper").show();
-        orderViewGenerator.generateActiveOrderTable(dataManager.getActiveOrdersData());
+        orderViewGenerator.generateActiveOrderTable(dataManager.getActiveOrderData());
     }
-
 
     function loadScheduledOrder() {
         console.log("scheduled");
@@ -116,7 +115,7 @@
         $('#scheduledOrder').addClass('active');
         $(".has-order-table").hide();
         $(".incomplete-order-wrapper").show();
-        orderViewGenerator.generateFutureOrderTable(dataManager.getFutureOrdersData());
+        orderViewGenerator.generateFutureOrderTable(dataManager.getFutureOrderData());
     }
 
     function loadPastOrder() {
@@ -164,7 +163,7 @@
         var position = $("#dashboardDiv").offset();
         var position2 = $("#assigndOrdersDiv").offset();
         $("#compressed-with-map").putTemplate("#template-map", '');
-        var adaptedDataForNotAcceptedOrder = adaptingDashboardOrderDataUnassigned(dataManager.getActiveOrdersData());
+        var adaptedDataForNotAcceptedOrder = adaptingDashboardOrderDataUnassigned(dataManager.getActiveOrderData());
         $("#currentOrderContainer").putTemplate("#template-dashboard-orders", adaptedDataForNotAcceptedOrder);
         var adaptedDataForDriver = driverViewGenerator.adaptingDashboardDriverData(dataManager.getDriverList());
 
