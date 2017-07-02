@@ -1,6 +1,8 @@
 /**
  * Created by kawnayeen on 10/19/16.
  */
+import BillingController from './billing.controller';
+
 (function () {
     "use strict";
 
@@ -9,7 +11,7 @@
     var currency_code = 'USD';
     var driverViewGenerator = require("./driver.view.generator");
     var settingsViewGenerator = require("./settings.controller");
-    var billingViewGenerator = require("./billing.controller");
+    let billingViewGenerator;
     var orderViewGenerator = require("./order.controller");
     var mapViewGenerator = require("./map.controller");
     var dateTimeHelper = require("./dateTimeHelper");
@@ -91,11 +93,7 @@
     }
 
     function loadBillingInfo() {
-        var dataToShow = dataManager.getBillingInfo();
-        $("#dashboardDiv").putTemplate("#template-billing-and-payment", dataToShow);
-        var position = $("#dashboardDiv").offset();
-        $('#menuDivDropdown2').css('min-height', screen.height - position.top);
-        billingViewGenerator.generateBillingTable();
+        billingViewGenerator.showBillingTable();
     }
 
     function loadOrder() {
@@ -196,8 +194,8 @@
 
 
     function loadReport() {
-        var dataToShow = dataManager.getBillingInfo();
-        $("#dashboardDiv").putTemplate("#template-report", '');
+        var dataToShow = dataManager.getDriverPaymentReport();
+        $("#dashboardDiv").putTemplate("#template-report", dataToShow);
         var position = $("#dashboardDiv").offset();
     }
 
@@ -243,6 +241,7 @@
 
     function initialize(data) {
         dataManager = data;
+        billingViewGenerator = new BillingController(dataManager);
     }
 
     exports.loadView = loadView;
